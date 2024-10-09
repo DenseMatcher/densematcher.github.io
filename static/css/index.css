@@ -161,3 +161,20 @@ body {
   aspect-ratio: 32 / 9;       /* Maintains a 9:32 aspect ratio */
   background-color: #ffffff;  /* Optional: For visual debugging */
 }
+
+.container3D canvas {
+  width: 100% !important;
+  height: 100% !important;
+  /* aspect-ratio: 1 / 1 !important; */
+}
+
+.robot-caption {
+  margin-top: 20px; /* Adjust the value as needed */
+  font-size: 1.2em;
+}
+
+.category-caption {
+  margin-top: 20px; /* Adjust the value as needed */
+  font-size: 1.5em;
+  text-align: center;
+}

@@ -267,76 +267,74 @@
 
 <section class="section">
   <div class="container is-max-desktop">
+    <div class="content">
+      <h2 class="title is-2" style="text-align: center;">Robotic Experiments</h2>
+      <p style="font-size: 1.2em;">
+        Our method only requires a single RGB-D human demo video for each task.
+        The robot transfers the human action across different object instances and categories,
+        even for tasks requiring multiple steps and graps.
+      </p>
+      <div class="columns is-centered">
 
-    <div class="columns is-centered">
+        <!-- Human Demos. -->
+        <div class="column">
+          <div class="content">
+            <h3>Human Demos</h3>
+              <p class="robot-caption">Peeling a Banana</p>
+              <video id="banana-human" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/our_videos/human_video/new_banana.mp4"
+                        type="video/mp4">
+              </video>
 
-      <!-- Human Demos. -->
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Human Demos</h2>
-          <p>
-            Our method only requires an RGB-D human demo video for each task. <br><br>
-          </p>
-            <h4>Peeling a Banana</h4>
-            <video id="banana-human" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/our_videos/human_video/new_banana.mp4"
-                      type="video/mp4">
-            </video>
+              <p class="robot-caption">Watering Carrots</p>
+              <video id="carrot-human" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/our_videos/human_video/new_carrot.mp4"
+                        type="video/mp4">
+              </video>
 
-            <h4><br>Watering Carrots</h4>
-            <video id="carrot-human" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/our_videos/human_video/new_carrot.mp4"
-                      type="video/mp4">
-            </video>
+              <video id="kettle-human" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/our_videos/human_video/new_kettle.mp4"
+                        type="video/mp4">
+              </video>
 
-            <video id="kettle-human" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/our_videos/human_video/new_kettle.mp4"
-                      type="video/mp4">
-            </video>
+              <p class="robot-caption">Organizing Shoes</p>
+              <video id="shoes-human" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/our_videos/human_video/new_shoes.mp4"
+                        type="video/mp4">
+              </video>
 
-            <h4><br>Organizing Shoes</h4>
-            <video id="shoes-human" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/our_videos/human_video/new_shoes.mp4"
-                      type="video/mp4">
-            </video>
+              <p class="robot-caption">Putting Flowers into a Vase</p>
+              <video id="flower-human" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/our_videos/human_video/new_flower_human_video.mp4"
+                        type="video/mp4">
+              </video>
 
-            <h4><br>Putting Flowers into a Vase</h4>
-            <video id="flower-human" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/our_videos/human_video/new_flower_human_video.mp4"
-                      type="video/mp4">
-            </video>
+              <p class="robot-caption">Decorating a Christmas Three</p>
+              <video id="tree-human" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/our_videos/human_video/new_tree.mp4"
+                        type="video/mp4">
+              </video>
 
-            <h4><br>Decorating a Christmas Tree</h4>
-            <video id="tree-human" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/our_videos/human_video/new_tree.mp4"
-                      type="video/mp4">
-            </video>
-
-            <h4><br>Transferring Pre-labelled Keypoints to New Objects and Poking Them with a Pen</h4>
-            <h6>Template</h6>
-            <img src="./static/our_videos/dog/color.png">
-            <h6>Target</h6>
-            <img src="./static/our_videos/dog/color2.png">
+              <p class="robot-caption">Transferring Pre-labelled Keypoints to New Objects <br> and Poking Them with a Pen</p>
+              <h6>Template</h6>
+              <img src="./static/our_videos/dog/color.png">
+              <h6>Target</h6>
+              <img src="./static/our_videos/dog/color2.png">
+          </div>
         </div>
-      </div>
-      <!--/ Human Demos. -->
+        <!--/ Human Demos. -->
 
-      <!-- Robot Demos. -->
-      <div class="column">
-        <h2 class="title is-3">Robot Manipulation</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              The robot transfers the human action across different object instances and categories, even for tasks requiring multiple steps and graps.
-            </p>
-
-            <h4>&nbsp;</h4>
+        <!-- Robot Demos. -->
+        <div class="column">
+          <h3>Robot Mimicking</h3>
+          <div class="content">
+            <p class="robot-caption">&nbsp;</p>
             <video id="banana-robot" controls playsinline height="100%">
               <source src="./static/our_videos/robot_video/new_banana_robot1.mp4"
                       type="video/mp4">
             </video>
 
-            <h4><br>&nbsp;</h4>
+            <p class="robot-caption">&nbsp;</p>
             <img src="./static/our_videos/robot_video/empty_img.png">
             <video id="carrot-robot" controls playsinline height="100%">
               <source src="./static/our_videos/robot_video/new_Carrot_robot_1_2x.mp4"
@@ -344,38 +342,68 @@
             </video>
             <div class="vertical-space"></div>
             
-            <h4><br>&nbsp;</h4>
+            <p class="robot-caption">&nbsp;</p>
             <video id="shoes-robot" controls playsinline height="100%">
               <source src="./static/our_videos/robot_video/new_shoes_robot_1.mp4"
                       type="video/mp4">
             </video>
 
-            <h4><br>&nbsp;</h4>
+            <p class="robot-caption">&nbsp;</p>
             <video id="flower-robot" controls playsinline height="100%">
               <source src="./static/our_videos/robot_video/new_flower_robot_1.mp4"
                       type="video/mp4">
             </video>
 
-            <h4><br>&nbsp;</h4>
+            <p class="robot-caption">&nbsp;</p>
             <video id="tree-robot" controls playsinline height="100%">
               <source src="./static/our_videos/robot_video/new_Christmas_robot1.mp4"
                       type="video/mp4">
             </video>
 
-            <h4><br>&nbsp;<br>&nbsp;</h4>
+            <p class="robot-caption">&nbsp;</p>
             <h6><br>&nbsp;</h6>
             <img src="./static/our_videos/robot_video/empty_img.png">
             <video id="carrot-robot" controls playsinline height="100%">
               <source src="./static/our_videos/robot_video/new_long_5x.mp4"
               type="video/mp4">
             </video>
-            <div class="vertical-space"></div>
             
           </div>
         </div>
       </div>
     </div>
     <!--/ Robot Demos. -->
+
+
+    <!-- Annotation. -->
+    <div class="content">
+      <h2 class="title is-2" style="text-align:center; margin-top:60px;">DenseCorr3D Dataset</h2></center>
+      <p>We release our training and test dataset <b>DenseCorr3D</b>, which contains 589 colored assets across 23 daily object categories. 
+        Our dense correspondence annotation comes in the form of <b>semantic groups</b>, 
+        which divides vertices of each asset into corresponding groups that are consistent within each category.
+        We show some examples below.
+      </p>
+      <p class="category-caption">Animals</p>
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="container3D" id="container_color0"></div>
+          <div class="container3D" id="container_annotation0"></div>
+        </div>
+
+        <div class="column">
+          <div class="container3D" id="container_color1"></div>
+          <div class="container3D" id="container_annotation1"></div>
+        </div>
+        <div class="column">
+          <div class="container3D" id="container_color2"></div>
+          <div class="container3D" id="container_annotation2"></div>
+        </div>
+
+      </div>
+    </div>
+    <!--/ Annotation. -->    
+    
+
 
     <!-- Animation. -->
     <!-- <div class="columns is-centered">
@@ -468,6 +496,7 @@
   </div>
 </section>
 
+
 <!-- 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
@@ -513,6 +542,7 @@
     </div>
   </div>
 </footer> -->
+<script type="module" src="static/js/render.js"></script>
 
 </body>
 </html>
