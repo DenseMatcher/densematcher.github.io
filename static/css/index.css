@@ -209,6 +209,15 @@ body {
   text-align: center;
 }
 
+.abstract-text {
+  font-size: 1.0em;
+}
+
+.bulk-text {
+  font-size: 1.0em;
+}
+
+
 .image-container {
   display: flex;
   justify-content: center;
@@ -220,4 +229,22 @@ body {
 .centered-image {
   max-width: 50%; /* Ensure the image scales properly */
   max-height: 100%; /* Ensure the image scales properly */
+}
+
+.video-placeholder {
+  width: 100%;
+  height: auto; /* Adjust as needed */
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0px solid #ccc;
+  margin-bottom: 20px; /* Add some space between placeholders */
+  padding: 0px; /* Add padding to create space within the placeholder */
+}
+
+.video-placeholder video,
+.video-placeholder img {
+  width: 100%;
+  height: auto;
 }

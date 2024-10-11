@@ -184,9 +184,9 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
 
-        <p>Dense 3D correspondence can enhance robotic manipulation by enabling the generalization of spatial, functional, and dynamic information from one object to an unseen counterpart.  Compared to shape correspondence, semantic correspondence is more effective in generalizing across different object categories.</p>
-        <p>To this end, we present <b>DenseMatcher</b>, a method capable of computing 3D correspondences between in-the-wild objects that share similar structures. DenseMatcher first computes vertex features by projecting multiview 2D features onto meshes and refining them with a 3D network, and subsequently finds dense correspondences with the obtained features using functional map. In addition, we craft the first 3D matching dataset that contains colored object meshes across diverse categories.</p>
-        <p>In our experiments, we show that DenseMatcher significantly outperforms prior 3D matching baselines by 43.5%. We demonstrate the downstream effectiveness of DenseMatcher in (i) robotic manipulation, where it achieves <b>cross-instance</b> and <b>cross-category</b> generalization on long-horizon complex manipulation tasks from observing only <b>one demo</b>; (ii) zero-shot color mapping between digital assets, where appearance can be transferred between different objects with relatable geometry.</p>
+        <p class="abstract-text">Dense 3D correspondence can enhance robotic manipulation by enabling the generalization of spatial, functional, and dynamic information from one object to an unseen counterpart.  Compared to shape correspondence, semantic correspondence is more effective in generalizing across different object categories.</p>
+        <p class="abstract-text">To this end, we present <b>DenseMatcher</b>, a method capable of computing 3D correspondences between in-the-wild objects that share similar structures. DenseMatcher first computes vertex features by projecting multiview 2D features onto meshes and refining them with a 3D network, and subsequently finds dense correspondences with the obtained features using functional map. In addition, we craft the first 3D matching dataset that contains colored object meshes across diverse categories.</p>
+        <p class="abstract-text">In our experiments, we show that DenseMatcher significantly outperforms prior 3D matching baselines by 43.5%. We demonstrate the downstream effectiveness of DenseMatcher in (i) robotic manipulation, where it achieves <b>cross-instance</b> and <b>cross-category</b> generalization on long-horizon complex manipulation tasks from observing only <b>one demo</b>; (ii) zero-shot color mapping between digital assets, where appearance can be transferred between different objects with relatable geometry.</p>
 
 
         </div>
@@ -202,10 +202,10 @@
     <div class="content">
       <h2 class="title is-2" style="text-align: center;">Method</h2>
       <img src="static/figures/method.jpg" width=100% />
-      <p style="font-size: 1.2em; margin-top:2%">
+      <p class="bulk-text" style="margin-top:2%">
         <b>DenseMatcher</b> computes <i>dense correspondences</i> between two colored objects via the following stages: (1) 2D feature extraction, (2) 3D feature refinement, and (3) dense correspondence computation.
       </p>
-      <p style="font-size: 1.2em;">
+      <p class="bulk-text">
         In the first stage, <a href="https://sd-complements-dino.github.io/" target="_blank">SD-DINO</a> is used to extract 2D features maps from different rendered views. 
         The feature for each vertex is then computed by averaging features retrieved from different views, as shown below.
       </p>
@@ -217,8 +217,8 @@
           <div class="container3D2" id="method1"></div>
         </div>
       </div>
-      <p class="method-caption"> Noisy Multiview Features \( f_\text{multiview} \) (Drag to Rotate)</p>
-      <p style="font-size: 1.2em;">
+      <p class="method-caption"> Noisy Multiview Features \( f_\text{multiview} \) &nbsp; (Drag to Rotate)</p>
+      <p class="bulk-text">
         In the second stage, since the above feature is noisy and does not utilize geometry information, we concatenate it with the vertex positions and then refine the feature with <a href="https://arxiv.org/abs/2012.00888" target="_blank">DiffusionNet</a>, a neural network architecture specifically designed for meshes. 
       </p>
       <div class="columns is-centered">
@@ -229,8 +229,8 @@
           <div class="container3D2" id="method3"></div>
         </div>
       </div>
-      <p class="method-caption"> Refined Output Features \( f_\text{output} \) (Drag to Rotate)</p>
-      <p style="font-size: 1.2em;">
+      <p class="method-caption"> Refined Output Features \( f_\text{output} \) &nbsp; (Drag to Rotate)</p>
+      <p class="bulk-text">
         Finally, using those features, we compute dense correspondences between two objects.
       </p>
       <div class="image-container">
@@ -244,126 +244,43 @@
   <div class="container is-max-desktop">
     <div class="content">
       <h2 class="title is-2" style="text-align: center;">Robotic Experiments</h2>
-      <p style="font-size: 1.2em;">
+      <p class="bulk-text">
         Our method only requires a single RGB-D human demo video for each task.
         The robot mimicks the human action by transferring keypoints across different object instances and categories,
         maintaining spatial and semantic consistency throughout tasks requiring multiple steps and graps.
       </p>
       <div class="content">
+        <div class="buttons is-centered">
+          <button class="button is-primary" id="load-banana">Peeling a Banana</button>
+          <button class="button is-primary" id="load-carrot">Watering Carrots</button>
+          <button class="button is-primary" id="load-flower">Putting Flowers into a Vase</button>
+          <button class="button is-primary" id="load-tree">Decorating a Christmas Tree</button>
+          <button class="button is-primary" id="load-shoes">Organizing Shoes</button>
+          <button class="button is-primary" id="load-dog">Transferring Keypoints</button>
+        </div>
         <div class="columns is-centered">
-          <div class="column">
-            <video id="banana-human" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/our_videos/human_video/new_banana.mp4"
-                      type="video/mp4">
-            </video>
+          <div class="column" id="left-videos">
+            <div id="human-video-placeholder-1" class="video-placeholder"></div>
+            <div id="human-video-placeholder-2" class="video-placeholder"></div>
           </div>
           <div class="column">
-            <video id="banana-robot" controls playsinline height="100%">
-              <source src="./static/our_videos/robot_video/new_banana_robot1.mp4"
-                      type="video/mp4">
-            </video>
+            <div id="robot-video-placeholder" class="video-placeholder"></div>
           </div>
         </div>
-        <p class="robot-caption">Peeling a Banana</p>
+        <p id="task-caption" class="robot-caption"></p>
         <div class="vertical-space-small"></div>
-
-      
-        <div class="columns is-centered">
-          <div class="column">
-            <video id="carrot-human" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/our_videos/human_video/new_carrot.mp4"
-                      type="video/mp4">
-            </video>
-
-            <video id="kettle-human" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/our_videos/human_video/new_kettle.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-          <div class="column">
-            <img src="./static/our_videos/robot_video/empty_img.png">
-            <video id="carrot-robot" controls playsinline height="100%">
-              <source src="./static/our_videos/robot_video/new_Carrot_robot_1_2x.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-        </div>
-        <p class="robot-caption">Watering Carrots</p>
-        <div class="vertical-space-small"></div>
-
-        <div class="columns is-centered">
-          <div class="column">
-            <video id="flower-human" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/our_videos/human_video/new_flower_human_video.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="column">
-            <video id="flower-robot" controls playsinline height="100%">
-              <source src="./static/our_videos/robot_video/new_flower_robot_1.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-        <p class="robot-caption">Putting Flowers into a Vase</p>
-        <div class="vertical-space-small"></div>
-
-        <div class="columns is-centered">
-          <div class="column">
-            <video id="tree-human" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/our_videos/human_video/new_tree.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="column">
-            <video id="tree-robot" controls playsinline height="100%">
-              <source src="./static/our_videos/robot_video/new_Christmas_robot1.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-        <p class="robot-caption">Decorating a Christmas Tree</p>
-        <div class="vertical-space-small"></div>
-
-        <div class="columns is-centered">
-          <div class="column">
-            <video id="shoes-human" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/our_videos/human_video/new_shoes.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="column">
-            <video id="shoes-robot" controls playsinline height="100%">
-              <source src="./static/our_videos/robot_video/new_shoes_robot_1.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-        <p class="robot-caption">Organizing Shoes</p>
-        <div class="vertical-space-small"></div>
-
-        <div class="columns is-centered">
-          <div class="column">
-            <h6>Template</h6>
-            <img src="./static/our_videos/dog/color.png">
-            <h6>Target</h6>
-            <img src="./static/our_videos/dog/color2.png">
-          </div>
-          <div class="column">
-            <img src="./static/our_videos/robot_video/empty_img.png">
-            <video id="carrot-robot" controls playsinline height="100%">
-              <source src="./static/our_videos/robot_video/new_long_5x.mp4"
-              type="video/mp4">
-            </video>
-          </div>
-        </div>
-        <p class="robot-caption">Transferring Pre-labelled Keypoints to New Objects <br> and Poking Them with a Pen</p>
-        <div class="vertical-space-small"></div>
-
       </div>
     </div>
+    <!--/ Robot Demos. -->
+    
     <!--/ Robot Demos. -->
 
     <!-- Annotation. -->
     <div class="content">
       <h2 class="title is-2" style="text-align:center; margin-top:60px;">DenseCorr3D Dataset</h2>
-      <p>We release our training and test dataset <b>DenseCorr3D</b>, which contains 589 colored assets across 23 daily object categories. 
+      <p class="bulk-text">We release our training and test dataset <b>DenseCorr3D</b>, which contains 589 colored assets across 23 daily object categories. 
         Our dense correspondence annotation comes in the form of <b>semantic groups</b>, 
-        which divides vertices of each asset into corresponding groups that are consistent within each category.
+        which divides vertices of each asset into corresponding groups that are consistent within each category. Below are some examples.
       </p>
       
       <div class="buttons is-centered">
@@ -529,8 +446,126 @@
     </div>
   </div>
 </footer> -->
+<script type="module" src="static/js/switch_videos.js"></script>
 <script type="module" src="static/js/render_method.js"></script>
 <script type="module" src="static/js/render.js"></script>
 
 </body>
 </html>
+
+
+
+    <!-- <div class="content">
+      <h2 class="title is-2" style="text-align: center;">Robotic Experiments</h2>
+      <p style="font-size: 1.2em;">
+        Our method only requires a single RGB-D human demo video for each task.
+        The robot mimicks the human action by transferring keypoints across different object instances and categories,
+        maintaining spatial and semantic consistency throughout tasks requiring multiple steps and graps.
+      </p>
+      <div class="content">
+        <div class="columns is-centered">
+          <div class="column">
+            <video id="banana-human" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/our_videos/human_video/new_banana.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="column">
+            <video id="banana-robot" controls playsinline height="100%">
+              <source src="./static/our_videos/robot_video/new_banana_robot1.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <p class="robot-caption">Peeling a Banana</p>
+        <div class="vertical-space-small"></div>
+
+      
+        <div class="columns is-centered">
+          <div class="column">
+            <video id="carrot-human" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/our_videos/human_video/new_carrot.mp4"
+                      type="video/mp4">
+            </video>
+
+            <video id="kettle-human" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/our_videos/human_video/new_kettle.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="column">
+            <img src="./static/our_videos/robot_video/empty_img.png">
+            <video id="carrot-robot" controls playsinline height="100%">
+              <source src="./static/our_videos/robot_video/new_Carrot_robot_1_2x.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <p class="robot-caption">Watering Carrots</p>
+        <div class="vertical-space-small"></div>
+
+        <div class="columns is-centered">
+          <div class="column">
+            <video id="flower-human" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/our_videos/human_video/new_flower_human_video.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column">
+            <video id="flower-robot" controls playsinline height="100%">
+              <source src="./static/our_videos/robot_video/new_flower_robot_1.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <p class="robot-caption">Putting Flowers into a Vase</p>
+        <div class="vertical-space-small"></div>
+
+        <div class="columns is-centered">
+          <div class="column">
+            <video id="tree-human" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/our_videos/human_video/new_tree.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column">
+            <video id="tree-robot" controls playsinline height="100%">
+              <source src="./static/our_videos/robot_video/new_Christmas_robot1.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <p class="robot-caption">Decorating a Christmas Tree</p>
+        <div class="vertical-space-small"></div>
+
+        <div class="columns is-centered">
+          <div class="column">
+            <video id="shoes-human" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/our_videos/human_video/new_shoes.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column">
+            <video id="shoes-robot" controls playsinline height="100%">
+              <source src="./static/our_videos/robot_video/new_shoes_robot_1.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <p class="robot-caption">Organizing Shoes</p>
+        <div class="vertical-space-small"></div>
+
+        <div class="columns is-centered">
+          <div class="column">
+            <h6>Template</h6>
+            <img src="./static/our_videos/dog/color.png">
+            <h6>Target</h6>
+            <img src="./static/our_videos/dog/color2.png">
+          </div>
+          <div class="column">
+            <img src="./static/our_videos/robot_video/empty_img.png">
+            <video id="carrot-robot" controls playsinline height="100%">
+              <source src="./static/our_videos/robot_video/new_long_5x.mp4"
+              type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <p class="robot-caption">Transferring Pre-labelled Keypoints to New Objects <br> and Poking Them with a Pen</p>
+        <div class="vertical-space-small"></div>
+
+      </div>
+    </div> -->
