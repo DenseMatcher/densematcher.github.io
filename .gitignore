@@ -3,3 +3,4 @@
 *.zip
 *.blend
 *.mtl
+**/color_mesh.obj

@@ -162,19 +162,62 @@ body {
   background-color: #ffffff;  /* Optional: For visual debugging */
 }
 
+.vertical-space-small {
+  width: 100%;                /* Fills the width of the column */
+  aspect-ratio: 32 / 1.5;       /* Maintains a 9:32 aspect ratio */
+  background-color: #ffffff;  /* Optional: For visual debugging */
+}
+
+
+.vertical-space-smaller {
+  width: 100%;                /* Fills the width of the column */
+  aspect-ratio: 32 / 1;       /* Maintains a 9:32 aspect ratio */
+  background-color: #ffffff;  /* Optional: For visual debugging */
+}
+
 .container3D canvas {
   width: 100% !important;
   height: 100% !important;
   /* aspect-ratio: 1 / 1 !important; */
 }
 
+
+
+.container3D2 canvas {
+  width: 50% !important;
+  height: 50% !important;
+  margin-left: 25% !important;
+  /* aspect-ratio: 1 / 1 !important; */
+}
+
 .robot-caption {
-  margin-top: 20px; /* Adjust the value as needed */
+  margin-top: -20px;
+  margin-bottom: 0px; /* Adjust the value as needed */
   font-size: 1.2em;
+  text-align: center;
 }
 
 .category-caption {
   margin-top: 20px; /* Adjust the value as needed */
   font-size: 1.5em;
   text-align: center;
+}
+
+.method-caption {
+  margin-top: 0%; /* Adjust the value as needed */
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Adjust as needed */
+  width: 100%; /* Adjust as needed */
+}
+
+.centered-image {
+  max-width: 50%; /* Ensure the image scales properly */
+  max-height: 100%; /* Ensure the image scales properly */
 }
