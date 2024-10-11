@@ -145,7 +145,7 @@ let objToRender = 'dino';
 
 let list = [
   "1d6d1_toy_animals_015", "2d6b3_toy_animals_009", "34fb4_toy_animals_019",
-  "2a535_toy_truck_002", "35ebd_toy_car_022", "6bb21_toy_bus_041", 
+  "2a535_toy_truck_002_vehicles", "35ebd_toy_car_022_vehicles", "6bb21_toy_bus_041_vehicles", 
   "apple_19", "apple_44", "apple_42",
   "banana_84", "banana_98", "banana_133"
 ];  // Add more folder names as needed
@@ -238,7 +238,7 @@ function loadCategory(category) {
   // Set the category image
   document.getElementById('category-image').src = `./static/figures/${category}.png`;
 
-  // Load the 3D models for the selected category
+  // Load all listed 3D models that include the category string
   const categoryAssets = list_assets.filter(asset => asset.path.includes(category));
   categoryAssets.forEach((asset, index) => {
     if (asset.type === 'annotation') {
@@ -249,6 +249,6 @@ function loadCategory(category) {
 
 // Event listeners for the buttons
 document.getElementById('load-animals').addEventListener('click', () => loadCategory('animal'));
-document.getElementById('load-cars').addEventListener('click', () => loadCategory('car'));
+document.getElementById('load-cars').addEventListener('click', () => loadCategory('vehicle'));
 document.getElementById('load-apples').addEventListener('click', () => loadCategory('apple'));
 document.getElementById('load-bananas').addEventListener('click', () => loadCategory('banana'));
