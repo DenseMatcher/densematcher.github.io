@@ -145,12 +145,12 @@
 
 function loadContent(humanContent1, humanContent2, robotContent, caption, isImage = false) {
     const leftColumn = document.getElementById('left-videos');
-    const robotVideoPlaceholder = document.getElementById('robot-video-placeholder');
+    const rightColumn = document.getElementById('right-videos');
     const taskCaption = document.getElementById('task-caption');
   
     // Clear existing content
     leftColumn.innerHTML = '';
-    robotVideoPlaceholder.innerHTML = '';
+    rightColumn.innerHTML = '';
 
 
     if (isImage) {
@@ -163,6 +163,14 @@ function loadContent(humanContent1, humanContent2, robotContent, caption, isImag
         humanImage1.setAttribute('height', 'auto');
         leftColumn.appendChild(humanImage1);
         leftColumn.appendChild(templateLabel);
+        const targetLabel = document.createElement('h6');
+        targetLabel.textContent = 'Target';
+        const humanImage2 = document.createElement('img');
+        humanImage2.setAttribute('src', humanContent2);
+        humanImage2.setAttribute('width', '100%');
+        humanImage2.setAttribute('height', 'auto');
+        leftColumn.appendChild(humanImage2);
+        leftColumn.appendChild(targetLabel);
     } else {
         const humanVideo1 = document.createElement('video');
         humanVideo1.setAttribute('autoplay', '');
@@ -177,20 +185,8 @@ function loadContent(humanContent1, humanContent2, robotContent, caption, isImag
         humanSource1.setAttribute('type', 'video/mp4');
         humanVideo1.appendChild(humanSource1);
         leftColumn.appendChild(humanVideo1);
-    }
 
-    if (humanContent2 !== null) {
-
-        if (isImage) {
-            const targetLabel = document.createElement('h6');
-            targetLabel.textContent = 'Target';
-            const humanImage2 = document.createElement('img');
-            humanImage2.setAttribute('src', humanContent2);
-            humanImage2.setAttribute('width', '100%');
-            humanImage2.setAttribute('height', 'auto');
-            leftColumn.appendChild(humanImage2);
-            leftColumn.appendChild(targetLabel);
-        } else {
+        if (humanContent2 !== null) {
             const humanVideo2 = document.createElement('video');
             humanVideo2.setAttribute('autoplay', '');
             humanVideo2.setAttribute('controls', '');
@@ -217,7 +213,7 @@ function loadContent(humanContent1, humanContent2, robotContent, caption, isImag
     robotSource.setAttribute('src', robotContent);
     robotSource.setAttribute('type', 'video/mp4');
     robotVideo.appendChild(robotSource);
-    robotVideoPlaceholder.appendChild(robotVideo);
+    rightColumn.appendChild(robotVideo);
 
     // Set the task caption
     taskCaption.innerHTML = caption;
