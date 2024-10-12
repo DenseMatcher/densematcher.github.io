@@ -248,3 +248,43 @@ body {
   width: 100%;
   height: auto;
 }
+
+.rainbow-text {
+  background: linear-gradient(to right, green, orange, red, purple, blue);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.stylized-text {
+  color: #FF6347; /* Tomato color */
+  font-weight: bold;
+  /* font-style: italic; */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Optional: Add a shadow for more effect */
+}
+.stylized-text2 {
+  color: magenta; /* Tomato color */
+  font-weight: bold;
+  /* font-style: italic; */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Optional: Add a shadow for more effect */
+}
+
+
+.rainbow-text2 {
+  color: #FF6347; /* Tomato color */
+  font-weight: bold;
+  background: linear-gradient(to right, cyan, blue, purple);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+
+.stylized-text3 {
+  /* color: #FF6347;  */
+  font-weight: bold;
+  /* font-style: italic; */
+}
+.stylized-text4 {
+  /* color: magenta;  */
+  font-weight: bold;
+  /* font-style: italic; */
+}

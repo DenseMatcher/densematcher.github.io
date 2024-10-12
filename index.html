@@ -77,7 +77,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title"><img src="./static/images/banana-icon.svg" alt="Banana Icon" width="36" height="36">DenseMatcher: Learning 3D Semantic Correspondence for Category-Level Manipulation from One Demo</h1>
+          <h1 class="title is-1 publication-title"><span class="stylized-text">Dense</span><span class="stylized-text2">Matcher</span> <img src="./static/images/banana-icon.svg" alt="Banana Icon" width="36" height="36">: Learning 3D Semantic <span class="rainbow-text2">Correspondence</span> for Category-Level Manipulation from One Demo</h1>
           <!-- <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://xxx.com">xxx</a><sup>1</sup>,</span>
@@ -185,7 +185,7 @@
         <div class="content has-text-justified">
 
         <p class="abstract-text">Dense 3D correspondence can enhance robotic manipulation by enabling the generalization of spatial, functional, and dynamic information from one object to an unseen counterpart.  Compared to shape correspondence, semantic correspondence is more effective in generalizing across different object categories.</p>
-        <p class="abstract-text">To this end, we present <b>DenseMatcher</b>, a method capable of computing 3D correspondences between in-the-wild objects that share similar structures. DenseMatcher first computes vertex features by projecting multiview 2D features onto meshes and refining them with a 3D network, and subsequently finds dense correspondences with the obtained features using functional map. In addition, we craft the first 3D matching dataset that contains colored object meshes across diverse categories.</p>
+        <p class="abstract-text">To this end, we present <span class="stylized-text3">Dense</span><span class="stylized-text4">Matcher</span>, a method capable of computing <b>3D correspondences</b> between in-the-wild objects that share similar structures. DenseMatcher first computes vertex features by projecting multiview 2D features onto meshes and refining them with a 3D network, and subsequently finds dense correspondences with the obtained features using functional map. In addition, we craft the first 3D matching dataset that contains <span class="rainbow-text"><b>colored</b></span> object meshes across diverse categories.</p>
         <p class="abstract-text">In our experiments, we show that DenseMatcher significantly outperforms prior 3D matching baselines by 43.5%. We demonstrate the downstream effectiveness of DenseMatcher in (i) robotic manipulation, where it achieves <b>cross-instance</b> and <b>cross-category</b> generalization on long-horizon complex manipulation tasks from observing only <b>one demo</b>; (ii) zero-shot color mapping between digital assets, where appearance can be transferred between different objects with relatable geometry.</p>
 
 
@@ -206,7 +206,7 @@
         <b>DenseMatcher</b> computes <i>dense correspondences</i> between two colored objects via the following stages: (1) 2D feature extraction, (2) 3D feature refinement, and (3) dense correspondence computation.
       </p>
       <p class="bulk-text">
-        In the first stage, <a href="https://sd-complements-dino.github.io/" target="_blank">SD-DINO</a> is used to extract 2D features maps from different rendered views. 
+        In the first stage, <a href="https://sd-complements-dino.github.io/" target="_blank">SD-DINO</a> is used to extract <b>2D features maps</b> from different rendered views. 
         The feature for each vertex is then computed by averaging features retrieved from different views, as shown below.
       </p>
       <div class="columns is-centered">
@@ -220,7 +220,7 @@
       <p class="method-caption"> Noisy Multiview Features \( f_\text{multiview} \) &nbsp; (Drag to Rotate)</p>
       <p class="bulk-text">
         In the second stage, since the above feature is noisy and does not utilize geometry information, 
-        we concatenate it with the vertex positions and then refine the feature with <a href="https://arxiv.org/abs/2012.00888" target="_blank">DiffusionNet</a>, a neural network architecture specifically designed for meshes. 
+        we concatenate it with the vertex positions and then <b>refine</b> the feature with <a href="https://arxiv.org/abs/2012.00888" target="_blank">DiffusionNet</a>, a <b>3D</b> neural network architecture specifically designed for meshes. 
       </p>
       <div class="columns is-centered">
         <div class="column">
@@ -232,7 +232,7 @@
       </div>
       <p class="method-caption"> Refined Output Features \( f_\text{output} \) &nbsp; (Drag to Rotate)</p>
       <p class="bulk-text">
-        Finally, using refined features of two objects, we compute dense correspondences by solving for 
+        Finally, using refined features of two objects, we compute <b>dense correspondences</b> by solving for 
         a <a href="https://cse291-i.github.io/WI18/LectureSlides/L17_Functional_Map.pdf" target="_blank">functional map</a> between them  (with our own novel optimization constraints!)
       </p>
       <div class="image-container">
@@ -247,9 +247,9 @@
     <div class="content">
       <h2 class="title is-2" style="text-align: center;">Robotic Experiments</h2>
       <p class="bulk-text">
-        Our method only requires a single RGB-D human demo video for each task.
+        Our method only requires a <b>single</b> RGB-D human demo video for each task.
         The robot mimicks the human action by transferring keypoints across different object instances and categories,
-        maintaining spatial and semantic consistency throughout tasks requiring multiple steps and graps.
+        maintaining spatial and semantic consistency throughout tasks requiring <b>multiple steps and graps</b>.
       </p>
       <div class="content">
         <div class="buttons is-centered">
@@ -277,7 +277,7 @@
     <!-- Annotation. -->
     <div class="content">
       <h2 class="title is-2" style="text-align:center; margin-top:60px;">DenseCorr3D Dataset</h2>
-      <p class="bulk-text">We release our training and test dataset <b>DenseCorr3D</b>, which contains 589 colored assets across 23 daily object categories. 
+      <p class="bulk-text">We release our training and test dataset <b>DenseCorr3D</b>, which contains 589 <span class="rainbow-text"><b>colored</b></span> assets across 23 daily object categories. 
         Since previous 3D matching datasets do not contain colors and focus on few categories, our dataset is the first to provide colored meshes across diverse categories.
       </p> 
       <p class="bulk-text">Our dense correspondence annotation comes in the form of <b>semantic groups</b>, 
