@@ -267,7 +267,7 @@ function loadContent(humanContent1, humanContent2, robotContent, caption, isImag
   
   document.getElementById('load-dog').addEventListener('click', () => {
     loadContent(
-      './static/our_videos/dog/color.png',
+      './static/our_videos/dog/Picture1.png',
       './static/our_videos/dog/color2.png',
       './static/our_videos/robot_video/new_long_5x.mp4',
       'Transferring Pre-labelled Keypoints to New Objects and Poking Them with a Pen',
