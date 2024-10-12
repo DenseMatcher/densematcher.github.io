@@ -219,7 +219,8 @@
       </div>
       <p class="method-caption"> Noisy Multiview Features \( f_\text{multiview} \) &nbsp; (Drag to Rotate)</p>
       <p class="bulk-text">
-        In the second stage, since the above feature is noisy and does not utilize geometry information, we concatenate it with the vertex positions and then refine the feature with <a href="https://arxiv.org/abs/2012.00888" target="_blank">DiffusionNet</a>, a neural network architecture specifically designed for meshes. 
+        In the second stage, since the above feature is noisy and does not utilize geometry information, 
+        we concatenate it with the vertex positions and then refine the feature with <a href="https://arxiv.org/abs/2012.00888" target="_blank">DiffusionNet</a>, a neural network architecture specifically designed for meshes. 
       </p>
       <div class="columns is-centered">
         <div class="column">
@@ -231,7 +232,8 @@
       </div>
       <p class="method-caption"> Refined Output Features \( f_\text{output} \) &nbsp; (Drag to Rotate)</p>
       <p class="bulk-text">
-        Finally, using those features, we compute dense correspondences between two objects.
+        Finally, using those features, we compute dense correspondences between two objects by solving for 
+        a <a href="https://cse291-i.github.io/WI18/LectureSlides/L17_Functional_Map.pdf" target="_blank">functional map</a> between them  (with our own novel optimization constraints!)
       </p>
       <div class="image-container">
         <img src="./static/figures/matched_lines_rotated.png" alt="Centered Image" class="centered-image">
