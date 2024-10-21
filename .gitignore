@@ -4,3 +4,4 @@
 *.blend
 *.mtl
 **/color_mesh.obj
+static/color_transfer/muhan_objs
